@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CommanderCraft Co. | Hand-Built Commander Decks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 1.5rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* BUTTON HOVER ANIMATION */
+    .btn, .btn-outline {
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #22c55e55;
+    }
+    .btn-outline:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #22c55e55;
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 4rem 8%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 32rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #022c22;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: #374151;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #22c55e22, #020617);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #1f2937;
+    }
+    .hero-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    .hero-card ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .hero-card li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    section {
+      padding: 3rem 8%;
+      border-top: 1px solid #1f2937;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      border: 1px solid #1f2937;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .pill {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid #374151;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ABOUT ME BUTTON HOVER */
+    .bottom-button a {
+      transition: all 0.2s ease;
+    }
+    .bottom-button a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #22c55e55;
+    }
+
+    .bottom-button {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .bottom-button a {
+      background-color: var(--accent);
+      color: #022c22;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .footer {
+      padding: 2rem 8%;
+      border-top: 1px solid #1f2937;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    Commander<span>Craft</span> Co.
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#decks">Decks</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h1>Hand‑Built Commander Decks, Ready to Play.</h1>
+      <p>
+        CommanderCraft Co. builds curated, ready‑to‑play Commander decks with real synergy,
+        clean mana bases, and strong game plans. No random bulk. No filler. Just decks that feel good to shuffle up.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn" href="#decks">View Featured Decks</a>
+        <a class="btn btn-outline" href="order.html">Order a Custom Deck</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h2>Why Players Choose CommanderCraft Co.</h2>
+      <ul>
+        <li>100‑card lists built around clear, tested strategies</li>
+        <li>Balanced mana bases using real lands</li>
+        <li>Decks tuned for fun, value, and table presence</li>
+        <li>Perfect for new, returning, or busy players</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About CommanderCraft Co.</h2>
+    <p>
+      CommanderCraft Co. started with a simple idea: not everyone has the time, card pool,
+      or experience to build a solid Commander deck from scratch—but everyone deserves to sit
+      down with a deck that feels intentional and fun.
+    </p>
+    <p style="margin-top:0.75rem;">
+      Each list is hand‑built, reviewed, and refined with a focus on:
+      <span class="highlight">synergy</span>, <span class="highlight">consistency</span>, and
+      <span class="highlight">play experience</span>.
+    </p>
+  </section>
+
+  <section id="decks">
+    <h2>Featured Deck Archetypes</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Tempo & Card Advantage</h3>
+        <p>
+          Efficient threats, card draw, and pressure—perfect for players who like staying ahead without going full combo.
+        </p>
+        <span class="pill">Mid‑power tables</span>
+      </div>
+      <div class="card">
+        <h3>Value Engine Commanders</h3>
+        <p>
+          Incremental advantage every turn. Smart plays, strong engines, and reliable game plans.
+        </p>
+        <span class="pill">Synergy‑driven</span>
+      </div>
+      <div class="card">
+        <h3>Tribal & Theme Builds</h3>
+        <p>
+          Creature‑focused decks with tight identities—easy to learn, fun to pilot, great for casual play.
+        </p>
+        <span class="pill">Beginner‑friendly</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <h2>How Your Deck Is Crafted</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1. Choose a Commander & Game Plan</h3>
+        <p>
+          Every deck starts with a clear identity: tempo, value, tribal, or synergy‑based strategies.
+        </p>
+      </div>
+      <div class="card">
+        <h3>2. Build for Synergy</h3>
+        <p>
+          Cards are chosen to work together—curve, interaction, threats, and finishers all support the same plan.
+        </p>
+      </div>
+      <div class="card">
+        <h3>3. Tune the Mana Base</h3>
+        <p>
+          Lands and ramp are selected to keep games smooth and playable.
+        </p>
+      </div>
+      <div class="card">
+        <h3>4. Final Review & Packaging</h3>
+        <p>
+          Lists are checked for consistency, then sleeved and packaged as ready‑to‑play 100‑card decks.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Custom Requests</h2>
+    <p>
+      Interested in a specific commander, archetype, or budget range?
+      CommanderCraft Co. can build a custom deck tailored to your preferences.
+    </p>
+    <p style="margin-top:0.75rem;">
+      You can reach us through:
+    </p>
+    <ul style="margin-top:0.5rem; margin-left:1rem; font-size:0.9rem; color:var(--muted);">
+      <li>Email: <span class="highlight">commandercraftco@gmail.com</span></li>
+    </ul>
+    <p style="margin-top:1rem; font-size:0.9rem; color:var(--muted);">
+      When you reach out, include your preferred commander, playstyle (casual, mid‑power, or higher),
+      and approximate budget. We’ll respond with a price quote.
+    </p>
+  </section>
+</main>
+
+<div class="bottom-button">
+  <a href="about.html">About Me</a>
+</div>
+
+<footer class="footer">
+  <div>© <span id="year"></span> CommanderCraft Co. All rights reserved.</div>
+  <div>Hand‑built Commander decks for real game nights.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
