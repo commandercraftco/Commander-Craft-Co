@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me - CommanderCraft Co.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      padding-top: 120px;
+    }
+
+    /* HEADER */
+    header {
+      padding: 1.5rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f2937;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15,23,42,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* CONTENT BOX */
+    .box {
+      background-color: var(--card);
+      padding: 40px;
+      border-radius: 12px;
+      width: 60%;
+      margin: auto;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+      border: 1px solid #1f2937;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* BUTTON */
+    .back-button {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .back-button a {
+      background-color: var(--accent);
+      color: #022c22;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+    .back-button a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px #22c55e55;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    Commander<span>Craft</span> Co.
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="order.html">Order</a>
+  </nav>
+</header>
+
+<div class="box">
+  <h1>About Me</h1>
+  <p>
+    Hi, my name is <strong>Ian</strong>. I’m from Nevada, and I started playing Magic: The Gathering a little over a year ago.
+    Magic quickly became one of my favorite hobbies—I love learning new strategies, building decks, and playing games with friends.
+    Over time, I realized I also really enjoy crafting decks that feel unique, fun, and strong at the table.
+    Now I’m turning that hobby into something bigger by creating decks for players who want a deck that’s thoughtful, consistent,
+    and ready to win real games.
+  </p>
+</div>
+
+<div class="back-button">
+  <a href="index.html">Back to Homepage</a>
+</div>
+
+</body>
+</html>
